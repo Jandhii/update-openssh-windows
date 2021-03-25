@@ -12,12 +12,16 @@ Unzip it on a folder.
 
 ```$openSshBins = (Get-ChildItem 'C:\WINDOWS\System32\OpenSSH\').Name```
 
-```$openSshBins | %{ icacls "C:\Windows\System32\OpenSSH\$_" /grant "marcp:F" /T }```
+```$perm = $uname + ":F"```
+
+```$openSshBins | %{ icacls "C:\Windows\System32\OpenSSH\$_" /grant $perm /T }```
 
 Path on this command takes binary downloaded files <br>
 ```$openSshBins | %{ Copy-Item -Path .\openssh\$_ -Destination C:\Windows\System32\OpenSSH\ }```
 
-```$openSshBins | %{ icacls "C:\Windows\System32\OpenSSH\$_" /remove "marcp" /T }```
+```$perm = $uname```
+
+```$openSshBins | %{ icacls "C:\Windows\System32\OpenSSH\$_" /remove $perm /T }```
 
 ```Set-Acl -Path C:\Windows\System32\OpenSSH\ -AclObject $oldAcl```
 
