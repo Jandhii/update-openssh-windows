@@ -8,6 +8,8 @@ Unzip it on a folder.
 
 ```$oldAcl = Get-Acl -Path C:\Windows\System32\OpenSSH\```
 
+```$uname = $env:username```
+
 ```takeown.exe /a /r /f C:\Windows\System32\OpenSSH\```
 
 ```$openSshBins = (Get-ChildItem 'C:\WINDOWS\System32\OpenSSH\').Name```
