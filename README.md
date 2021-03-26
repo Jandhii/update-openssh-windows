@@ -5,7 +5,7 @@ Few command lines to get OpenSSH updated manually.
 Get the latest release from this repo 
 https://github.com/PowerShell/Win32-OpenSSH/releases<br>
 Unzip it on a folder.
-
+Execute the following commands with elevated privileges in powershell.
 ```$oldAcl = Get-Acl -Path C:\Windows\System32\OpenSSH\```
 
 ```$uname = $env:username```
